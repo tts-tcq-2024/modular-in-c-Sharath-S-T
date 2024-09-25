@@ -3,17 +3,17 @@
 
 #include <stdio.h>
 
-// Enum definitions
 enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
 enum MinorColor {BLUE, ORANGE, GREEN, BROWN, SLATE};
 
-// Color Pair structure
 typedef struct {
     enum MajorColor majorColor;
     enum MinorColor minorColor;
 } ColorPair;
 
-// Function prototypes
+const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
+const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+
 void ColorPairToString(const ColorPair* colorPair, char* buffer);
 ColorPair GetColorFromPairNumber(int pairNumber);
 int GetPairNumberFromColor(const ColorPair* colorPair);
