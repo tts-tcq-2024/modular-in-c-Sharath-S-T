@@ -4,17 +4,14 @@
 #include <stdio.h>
 #include <string.h>
 
-enum MajorColor { WHITE, RED, BLACK, YELLOW, VIOLET };
-enum MinorColor { BLUE, ORANGE, GREEN, BROWN, SLATE };
+enum MajorColor { WHITE, RED, BLACK, YELLOW, VIOLET, INVALID_MAJOR_COLOR = -1 };
+enum MinorColor { BLUE, ORANGE, GREEN, BROWN, SLATE, INVALID_MINOR_COLOR = -1 };
 
 const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
 const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 
 int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
 int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
-
-#define INVALID_MAJOR_COLOR -1
-#define INVALID_MINOR_COLOR -1
 
 typedef struct {
     enum MajorColor majorColor;
