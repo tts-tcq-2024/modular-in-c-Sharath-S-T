@@ -5,13 +5,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-void testNumberToPair(int pairNumber, enum MajorColor expectedMajor, enum MinorColor expectedMinor) {
+void testPairNumberToColorPair(int pairNumber, enum MajorColor expectedMajor, enum MinorColor expectedMinor) {
     ColorPair colorPair = GetColorFromPairNumber(pairNumber);
     assert(colorPair.majorColor == expectedMajor);
     assert(colorPair.minorColor == expectedMinor);
 }
 
-void testPairToNumber(enum MajorColor major, enum MinorColor minor, int expectedPairNumber) {
+void testColorPairToPairNumber(enum MajorColor major, enum MinorColor minor, int expectedPairNumber) {
     ColorPair colorPair = {major, minor};
     int pairNumber = GetPairNumberFromColor(&colorPair);
     assert(pairNumber == expectedPairNumber);
@@ -36,11 +36,11 @@ void testInvalidColorPair(const ColorPair* colorPair) {
 
 void runTests() {
     // Valid cases
-    testNumberToPair(1, WHITE, BLUE);
-    testNumberToPair(5, WHITE, SLATE);
-    testNumberToPair(6, RED, BLUE);
-    testPairToNumber(BLACK, ORANGE, 12);
-    testPairToNumber(VIOLET, SLATE, 25);
+    testPairNumberToColorPair(1, WHITE, BLUE);
+    testPairNumberToColorPair(5, WHITE, SLATE);
+    testPairNumberToColorPair(6, RED, BLUE);
+    testColorPairToPairNumber(BLACK, ORANGE, 12);
+    testColorPairToPairNumber(VIOLET, SLATE, 25);
     testColorCodeManual();
 
     // Invalid cases
