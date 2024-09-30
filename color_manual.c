@@ -5,9 +5,9 @@
 #include <string.h>
 
 char* ColorPairToString(const ColorPair* colorPair) {
-    char* buffer = (char*)malloc(16 * sizeof(char));  // Allocate memory
+    char* buffer = (char*)malloc(16 * sizeof(char));
     sprintf(buffer, "%s %s", MajorColorNames[colorPair->majorColor], MinorColorNames[colorPair->minorColor]);
-    return buffer;  // Return the string buffer
+    return buffer;
 }
 
 void appendColorPairToManual(char* manual, int pairNumber) {
@@ -16,24 +16,24 @@ void appendColorPairToManual(char* manual, int pairNumber) {
         char* colorPairName = ColorPairToString(&colorPair);
         char line[32];
         sprintf(line, "%d -> %s\n", pairNumber, colorPairName);
-        strcat(manual, line);  // Append the line to the manual
-        free(colorPairName);  // Free the allocated memory
+        strcat(manual, line);
+        free(colorPairName);
     }
 }
 
 char* GenerateColorCodeManual() {
     int totalPairs = numberOfMajorColors * numberOfMinorColors;
-    char* manual = (char*)malloc(totalPairs * 24 * sizeof(char));  // Allocate enough space
-    manual[0] = '\0';  // Start with an empty string
+    char* manual = (char*)malloc(totalPairs * 24 * sizeof(char));
+    manual[0] = '\0';
 
     for (int i = 1; i <= totalPairs; i++) {
         appendColorPairToManual(manual, i);
     }
-    return manual;  // Return the full manual as a string
+    return manual;
 }
 
 void PrintColorCodeManual() {
     char* manual = GenerateColorCodeManual();
     printf("%s", manual);
-    free(manual);  // Free the allocated memory for the manual
+    free(manual);
 }
