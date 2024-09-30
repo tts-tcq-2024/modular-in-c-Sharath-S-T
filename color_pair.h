@@ -18,6 +18,5 @@ extern const char* MinorColorNames[];
 char* ColorPairToString(const ColorPair* colorPair);
 ColorPair GetColorFromPairNumber(int pairNumber);
 int GetPairNumberFromColor(const ColorPair* colorPair);
-char* GenerateColorCodeManual();
 
 #endif
