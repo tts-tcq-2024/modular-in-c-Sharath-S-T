@@ -2,15 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
-const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-
-int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
-int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
-
-const int INVALID_MAJOR_COLOR = -1;
-const int INVALID_MINOR_COLOR = -1;
-
 int isValidMajorColor(int majorColor) {
     return majorColor >= 0 && majorColor < numberOfMajorColors;
 }
