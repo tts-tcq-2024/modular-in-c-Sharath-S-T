@@ -11,6 +11,14 @@ int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
 const int INVALID_MAJOR_COLOR = -1;
 const int INVALID_MINOR_COLOR = -1;
 
+int isValidMajorColor(int majorColor) {
+    return majorColor >= 0 && majorColor < numberOfMajorColors;
+}
+
+int isValidMinorColor(int minorColor) {
+    return minorColor >= 0 && minorColor < numberOfMinorColors;
+}
+
 int ValidatePairNumber(int pairNumber) {
     return (pairNumber >= 1 && pairNumber <= (numberOfMajorColors * numberOfMinorColors)) ? 1 : -1;
 }
@@ -21,14 +29,6 @@ int ValidateColorPair(const ColorPair* colorPair) {
         return 1;
     }
     return -1;
-}
-
-int isValidMajorColor(int majorColor) {
-    return majorColor >= 0 && majorColor < numberOfMajorColors;
-}
-
-int isValidMinorColor(int minorColor) {
-    return minorColor >= 0 && minorColor < numberOfMinorColors;
 }
 
 ColorPair GetColorFromPairNumber(int pairNumber) {
