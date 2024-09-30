@@ -6,7 +6,7 @@ TC_004,test_pair_to_number_black_orange,"Major color = 'Black', Minor color = 'O
 TC_005,test_pair_to_number_violet_slate,"Major color = 'Violet', Minor color = 'Slate'",Pair number = 25,"Verifies that the color pair ('Violet', 'Slate') correctly maps to pair number 25."
 TC_006,test_color_code_manual_1,N/A,"Manual includes entry for pair number 1","Verifies that the manual includes entry for pair number 1."
 TC_007,test_color_code_manual_25,N/A,"Manual includes entry for pair number 25","Verifies that the manual includes entry for pair number 25."
-TC_008,test_color_code_manual_full,N/A,"Full expected manual (see below)","Checks if the entire manual matches the expected output."
+TC_008,test_color_code_manual_full,N/A,"Full expected manual","Checks if the entire manual matches the expected output."
 TC_009,test_invalid_pair_number_out_of_bounds,"Pair number = 100","Error handled","Ensures that an invalid pair number (e.g., 100) is handled correctly."
 TC_010,test_invalid_pair_number_below_range,"Pair number = 0","Error handled","Ensures that an invalid pair number (e.g., 0) is handled correctly."
 TC_011,test_invalid_major_color,"Major color = 5, Minor color = 0","Error handled","Ensures that an invalid major color input does not produce a valid pair number."
