@@ -8,6 +8,9 @@ const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
 int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
 
+const int INVALID_MAJOR_COLOR = -1;
+const int INVALID_MINOR_COLOR = -1;
+
 int ValidatePairNumber(int pairNumber) {
     return (pairNumber >= 1 && pairNumber <= (numberOfMajorColors * numberOfMinorColors)) ? 1 : -1;
 }
@@ -29,7 +32,7 @@ int isValidMinorColor(int minorColor) {
 }
 
 ColorPair GetColorFromPairNumber(int pairNumber) {
-    ColorPair colorPair = { -1, -1 };
+    ColorPair colorPair = { INVALID_MAJOR_COLOR, INVALID_MINOR_COLOR };
     if (ValidatePairNumber(pairNumber) == -1) {
         return colorPair; // Invalid pair
     }
