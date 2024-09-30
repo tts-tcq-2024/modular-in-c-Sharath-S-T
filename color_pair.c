@@ -1,5 +1,5 @@
 #include "color_pair.h"
-#include <stdlib.h>  // For malloc
+#include <stdlib.h>
 #include <stdio.h>
 
 const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
@@ -8,9 +8,16 @@ const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
 int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
 
-int isValidPairNumber(int pairNumber) {
-    int totalPairs = numberOfMajorColors * numberOfMinorColors;
-    return pairNumber >= 1 && pairNumber <= totalPairs;
+int ValidatePairNumber(int pairNumber) {
+    return (pairNumber >= 1 && pairNumber <= (numberOfMajorColors * numberOfMinorColors)) ? 1 : -1;
+}
+
+int ValidateColorPair(const ColorPair* colorPair) {
+    if (colorPair == NULL) return -1;
+    if (isValidMajorColor(colorPair->majorColor) && isValidMinorColor(colorPair->minorColor)) {
+        return 1;
+    }
+    return -1;
 }
 
 int isValidMajorColor(int majorColor) {
@@ -22,10 +29,9 @@ int isValidMinorColor(int minorColor) {
 }
 
 ColorPair GetColorFromPairNumber(int pairNumber) {
-    ColorPair colorPair = { -1, -1 };  // Initialize with invalid values
-    if (!isValidPairNumber(pairNumber)) {
-        printf("Invalid Pair Number: %d\n", pairNumber);
-        return colorPair;  // Return invalid pair
+    ColorPair colorPair = { -1, -1 };
+    if (ValidatePairNumber(pairNumber) == -1) {
+        return colorPair; // Invalid pair
     }
     
     int zeroBasedPairNumber = pairNumber - 1;
@@ -35,14 +41,8 @@ ColorPair GetColorFromPairNumber(int pairNumber) {
 }
 
 int GetPairNumberFromColor(const ColorPair* colorPair) {
-    if (!isValidMajorColor(colorPair->majorColor)) {
-        printf("Invalid Major Color: %d\n", colorPair->majorColor);
+    if (ValidateColorPair(colorPair) == -1) {
         return -1;  // Error code for invalid color
     }
-    if (!isValidMinorColor(colorPair->minorColor)) {
-        printf("Invalid Minor Color: %d\n", colorPair->minorColor);
-        return -1;  // Error code for invalid color
-    }
-    
     return colorPair->majorColor * numberOfMinorColors + colorPair->minorColor + 1;
 }
