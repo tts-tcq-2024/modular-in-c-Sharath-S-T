@@ -4,6 +4,6 @@
 
 int main() {
     runTests();
-    PrintColorCodeManual();  // Print the color code manual
+    PrintColorCodeManual();
     return 0;
 }
