@@ -2,12 +2,12 @@
 #define COLOR_PAIR_H
 
 #include <stdio.h>
+#include <string.h>
 
 enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
 enum MinorColor {BLUE, ORANGE, GREEN, BROWN, SLATE};
 
-typedef struct
-{
+typedef struct {
     enum MajorColor majorColor;
     enum MinorColor minorColor;
 } ColorPair;
@@ -15,9 +15,9 @@ typedef struct
 extern const char* MajorColorNames[];
 extern const char* MinorColorNames[];
 
-void ColorPairToString(const ColorPair* colorPair, char* buffer);
+char* ColorPairToString(const ColorPair* colorPair);
 ColorPair GetColorFromPairNumber(int pairNumber);
 int GetPairNumberFromColor(const ColorPair* colorPair);
-void PrintColorCodeManual();
+char* GenerateColorCodeManual();
 
 #endif
