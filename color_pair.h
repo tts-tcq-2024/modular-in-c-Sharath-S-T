@@ -7,11 +7,11 @@
 enum MajorColor { WHITE, RED, BLACK, YELLOW, VIOLET, INVALID_MAJOR_COLOR = -1 };
 enum MinorColor { BLUE, ORANGE, GREEN, BROWN, SLATE, INVALID_MINOR_COLOR = -1 };
 
-const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
-const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-
-int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
-int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
+// Declare the variables as extern
+extern const char* MajorColorNames[];
+extern const char* MinorColorNames[];
+extern const int numberOfMajorColors;
+extern const int numberOfMinorColors;
 
 typedef struct {
     enum MajorColor majorColor;
