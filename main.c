@@ -1,13 +1,9 @@
 #include "color_pair.h"
 #include "color_tests.h"
+#include "color_manual.h"
 
 int main() {
     runTests();
-    
-    // Generate and print the color code manual
-    char* manual = GenerateColorCodeManual();
-    printf("%s", manual);
-    free(manual);  // Free the allocated memory for the manual
-
+    PrintColorCodeManual();  // Print the color code manual
     return 0;
 }
