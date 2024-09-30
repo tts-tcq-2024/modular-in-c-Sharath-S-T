@@ -12,7 +12,7 @@ char* ColorPairToString(const ColorPair* colorPair) {
 
 void appendColorPairToManual(char* manual, int pairNumber) {
     ColorPair colorPair = GetColorFromPairNumber(pairNumber);
-    if (colorPair.majorColor != -1 && colorPair.minorColor != -1) {
+    if (colorPair.majorColor != INVALID_MAJOR_COLOR && colorPair.minorColor != INVALID_MINOR_COLOR) {
         char* colorPairName = ColorPairToString(&colorPair);
         char line[32];
         sprintf(line, "%d -> %s\n", pairNumber, colorPairName);
